@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMI_S FITNESS CENTER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+    <div class="logo">
+        <img src="./images/logo.png" alt="ALMI_S Fitness Center Logo">
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="trainers_profile.html">Trainers</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="sucess_stories.html">Success Stories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- ✅ AUTH AREA -->
+    <div id="auth-area" class="auth-area">
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+</header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Body,<br>Transform Your Life</h1>
+            <p>Join our expert-led training programs and achieve your fitness goals.</p>
+            <button class="btn-red"
+             onclick="openModal('Join ALMI Fitness','Start your fitness journey')">
+Join Now
+</button>
+
+            <button class="btn-outline"
+onclick="openModal('Login Assistance','We will help you get started')">
+Login
+</button>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section">
+        <img src="https://i.pinimg.com/736x/d5/df/49/d5df494aa3518f2260874dd1d2641dc0.jpg">
+
+        <div class="about-text">
+            <h2>Welcome to ALMI_S Fitness Center</h2>
+            <p>
+                We offer personalized fitness programs to help you achieve your health and wellness goals. Our expert trainers guide you through every step of your fitness journey, whether it's strength training, cardio, or functional workouts. Join us to transform your lifestyle and unleash your full potential. ALMI_S is focused on providing world-class fitness services to service members and civilians in order to educate and promote a lifestyle dedicated to excellence. All revenue generated through CronusFit will drive our commitment to service by providing charitable donations to other non-profits and causes, assisting soldiers and families in need, and through our own scholarship fund - the Cronus Scholars program.
+            </p>
+        </div>
+    </section>
+    
+
+    <!-- GYM IMAGES -->
+    <section class="gym-section">
+        <img src="https://i.pinimg.com/736x/1d/44/ec/1d44ecab1591013165637b637615d7a1.jpg">
+        <img src="https://i.pinimg.com/1200x/1e/05/0b/1e050bcc880ad6490e3cb135ed5b097b.jpg">
+        <img src="https://i.pinimg.com/1200x/7e/1f/5b/7e1f5b70fa4e9d22e0e11024c8c7a777.jpg">
+        <img src="https://i.pinimg.com/1200x/c0/17/60/c01760924cfc783be218da6d340289a3.jpg">
+        <img src="https://i.pinimg.com/1200x/4f/04/26/4f0426c5d01e7ff68d083a2c88e97722.jpg">
+        <img src="https://i.pinimg.com/736x/58/0b/47/580b478e686d5a3e68a15d3be64b6b01.jpg">
+        <img src="https://i.pinimg.com/1200x/76/16/22/761622051e28ed63b3f09c20bd199828.jpg">
+        <img src="https://i.pinimg.com/736x/5d/55/a6/5d55a6d4f4b66609f05344ead02228aa.jpg">
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="programs-grid">
+
+        <div class="project-section">
+            <div class="content-box">
+                <h2>Check Out Our Classes</h2>
+                <p>
+                    Looking to get fit, learn to defend yourself, or start your MMA journey?
+                    Combat Kinetics has the right program for you. Our classes combine scientific training
+                    methods, mindset development, and skill-building — suitable for all fitness levels.
+                </p>
+            </div>
+        </div>
+
+        <div class="program-item">
+            <img src="https://i.pinimg.com/1200x/64/b9/99/64b9994546f3b10183af9f8ddabb84bb.jpg">
+            <div class="program-overlay">
+                <h3>Functional Training</h3>
+                <p>High-intensity functional workouts to build strength and stamina.</p>
+                <button class="btn-red"
+onclick="openModal('Program Enquiry','We will contact you soon')">
+Find Out More
+</button>
+
+            </div>
+        </div>
+
+        <div class="program-item">
+            <img src="https://i.pinimg.com/1200x/d1/70/4d/d1704d7aaa803fd589543284e2e36855.jpg">
+            <div class="program-overlay">
+                <h3>Fitness Bootcamp</h3>
+                <p>Burn fat and build endurance through structured bootcamp sessions.</p>
+                <button class="btn-red"
+onclick="openModal('Program Enquiry','We will contact you soon')">
+Find Out More
+</button>
+
+            </div>
+        </div>
+
+        <div class="program-item">
+            <img src="https://i.pinimg.com/736x/58/56/59/58565998af0f63df186ed0591d8e7fdd.jpg">
+            <div class="program-overlay">
+                <h3>Body Transformation</h3>
+                <p>Achieve dramatic body transformation with guided workout plans.</p>
+                <button class="btn-red"
+onclick="openModal('Program Enquiry','We will contact you soon')">
+Find Out More
+</button>
+
+            </div>
+        </div>
+
+        <div class="program-item">
+            <img src="https://i.pinimg.com/736x/df/1d/8a/df1d8adc0b1e92b78fb12e0c5db46925.jpg">
+            <div class="program-overlay">
+                <h3>Weight Loss & Weight Gain</h3>
+                <p>Choose between weight loss or mass gain under expert supervision.</p>
+                <button class="btn-red"
+onclick="openModal('Program Enquiry','We will contact you soon')">
+Find Out More
+</button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Let’s Talk!</h2>
+        <p>We provide fitness options suitable for everyone. Let's find the best plan for you.</p>
+        <button class="footer-btn"
+onclick="openModal('Book a Consultation','Our team will contact you shortly')">
+Book a Consult
+</button>
+
+    </footer>
+
+    <div class="footer-contact-wrapper">
+        <div class="footer-contact">
+            <div>
+                <h4>OUR HQ (10AM to 6PM)</h4>
+                <p>1 Floor, 7-3, Madley Rd, T. Nagar, Chennai, Tamil Nadu 600017</p>
+                <a href="#" style="color:white;">View on map</a>
+            </div>
+
+            <div>
+                <h4>Contact</h4>
+                <p>+91 95662 08724</p>
+                <p>ALWARPET | ADYAR | PERUNGUDI | ANNA NAGAR</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        COPYRIGHT © 2025 – QUAD FITNESS PRIVATE LIMITED<br>
+        Website designed by Whoamama Design
+    </div>
+    <script>
+(function () {
+    const authArea = document.getElementById("auth-area");
+    if (!authArea) return;
+
+    const user = localStorage.getItem("loggedInUser");
+
+    if (user) {
+        authArea.innerHTML = `
+            <span style="color:white; font-weight:bold; margin-right:8px;">
+                Hi, ${user}
+            </span>
+            <button class="login-btn" onclick="logoutUser()">Logout</button>
+        `;
+    }
+})();
+
+function logoutUser() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "home.html";
+}
+</script>
+
+<!-- COMMON POPUP -->
+<div id="commonModal" class="modal">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModal()">×</span>
+
+    <h2 id="modalTitle">Join Now</h2>
+    <p id="modalDesc">Fill the details below</p>
+
+    <input type="text" id="modalName" placeholder="Your Name">
+    <input type="email" id="modalEmail" placeholder="Your Email">
+    <input type="hidden" id="selectedPlan">
+
+    <button class="btn-red" onclick="submitModal()">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(title, desc) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+
+    // 🔥 AUTO-FILL EMAIL IF LOGGED IN
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+        document.getElementById("modalEmail").value = user;
+    } else {
+        document.getElementById("modalEmail").value = "";
+    }
+
+    document.getElementById("commonModal").style.display = "flex";
+}
+
+
+function closeModal() {
+    document.getElementById("commonModal").style.display = "none";
+}
+
+function submitModal() {
+    showToast("Request submitted successfully!");
+    closeModal();
+}
+</script>
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+    <span id="toastMsg">Success</span>
+</div>
+
+<script>
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+
+    toastMsg.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+</script>
+
+<!-- TOGGLE LOGIC -->
+ <script>
+function toggleMenu() {
+    const nav = document.querySelector(".nav-links");
+    const toggle = document.querySelector(".menu-toggle");
+
+    nav.classList.toggle("active");
+    toggle.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+package com.almi.gym;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AlmiGymBackendApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AlmiGymBackendApplication.class, args);
+	}
+
+}

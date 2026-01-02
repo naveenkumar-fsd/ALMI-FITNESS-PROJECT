@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALMI Fitness Center - Trainers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+     <!-- NAVBAR -->
+    <header class="navbar">
+    <div class="logo">
+        <img src="./images/logo.png" alt="ALMI_S Fitness Center Logo">
+    </div>
+
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="trainers_profile.html">Trainers</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="sucess_stories.html">Success Stories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- ✅ AUTH AREA -->
+    <div id="auth-area">
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+</header>
+
+    <header>
+        <h1>ALMI FITNESS CENTER - TRAINERS</h1>
+        
+</header>
+
+    <section class="trainer-section">
+
+        <div class="trainer-card">
+            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a" alt="John" />
+            <h3>John</h3>
+            <p>Strength & Conditioning Coach</p>
+            <p>Timing: 6 AM – 10 AM</p>
+            <p>Cost: ₹5000/month</p>
+            <p>Contact: 9000011111</p>
+            <button 
+style="margin-top:10px; padding:10px 18px; background:red; color:white; border:none; cursor:pointer; border-radius:8px; font-weight:bold;"
+onclick="openModal('Book Trainer Session','Choose your preferred date and time')">
+    Book Session
+</button>
+
+        </div>
+
+        <div class="trainer-card">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Emma" />
+            <h3>Emma</h3>
+            <p>Yoga & Flexibility Trainer</p>
+            <p>Timing: 10 AM – 1 PM</p>
+            <p>Cost: ₹4500/month</p>
+            <p>Contact: 9000022222</p>
+           <button 
+                style="margin-top:10px; padding:10px 18px; background:red; color:white; border:none; cursor:pointer; border-radius:8px; font-weight:bold;"
+                onclick="openModal('Book Trainer Session','Choose your preferred date and time')">
+                 Book Session
+               </button>
+
+        </div>
+
+        <div class="trainer-card">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Alex" />
+            <h3>Alex</h3>
+            <p>Weight Loss Specialist</p>
+            <p>Timing: 2 PM – 5 PM</p>
+            <p>Cost: ₹5500/month</p>
+            <p>Contact: 9000033333</p>
+           <button 
+style="margin-top:10px; padding:10px 18px; background:red; color:white; border:none; cursor:pointer; border-radius:8px; font-weight:bold;"
+onclick="openModal('Book Trainer Session','Choose your preferred date and time')">
+    Book Session
+</button>
+
+        </div>
+
+        <div class="trainer-card">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39" alt="Mia" />
+            <h3>Raghul</h3>
+            <p>Cardio & HIIT Instructor</p>
+            <p>Timing: 5 PM – 8 PM</p>
+            <p>Cost: ₹4800/month</p>
+            <p>Contact: 9000044444</p>
+           <button 
+style="margin-top:10px; padding:10px 18px; background:red; color:white; border:none; cursor:pointer; border-radius:8px; font-weight:bold;"
+onclick="openModal('Book Trainer Session','Choose your preferred date and time')">
+    Book Session
+</button>
+
+        </div>
+
+        <div class="trainer-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="David" />
+            <h3>David</h3>
+            <p>Zumba & Aerobics Trainer</p>
+            <p>Timing: 8 AM – 11 AM</p>
+            <p>Cost: ₹4200/month</p>
+            <p>Contact: 9000055555</p>
+     <button 
+style="margin-top:10px; padding:10px 18px; background:red; color:white; border:none; cursor:pointer; border-radius:8px; font-weight:bold;"
+onclick="openModal('Book Trainer Session','Choose your preferred date and time')">
+    Book Session
+</button>
+
+        </div>
+
+    </section>
+
+    <footer>
+        © 2025 ALMI Fitness Center | All Rights Reserved
+        <div style="margin-top:10px;">
+            <span>Follow us:</span><br>
+            <span>📸 Instagram | 👍 Facebook | ▶ YouTube</span>
+        </div>
+</footer>
+  <script>
+const user = localStorage.getItem("loggedInUser");
+const authArea = document.getElementById("auth-area");
+
+if (authArea && user) {
+    authArea.innerHTML = `
+        <span style="color:white; font-weight:bold;">Hi, ${user}</span>
+        <button onclick="logout()" class="login-btn" style="margin-left:10px;">Logout</button>
+    `;
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "home.html";
+}
+</script>
+
+<!-- COMMON POPUP -->
+<div id="commonModal" class="modal">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModal()">×</span>
+
+    <h2 id="modalTitle">Join Now</h2>
+    <p id="modalDesc">Fill the details below</p>
+
+    <input type="text" id="modalName" placeholder="Your Name">
+    <input type="email" id="modalEmail" placeholder="Your Email">
+    <input type="hidden" id="selectedPlan">
+
+    <button class="btn-red" onclick="submitModal()">Submit</button>
+  </div>
+</div>
+<script>
+function openModal(title, desc) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+
+    // 🔥 AUTO-FILL EMAIL IF LOGGED IN
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+        document.getElementById("modalEmail").value = user;
+    } else {
+        document.getElementById("modalEmail").value = "";
+    }
+
+    document.getElementById("commonModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("commonModal").style.display = "none";
+}
+
+function submitModal() {
+   showToast("Request submitted successfully!");
+    closeModal();
+}
+</script>
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+    <span id="toastMsg">Success</span>
+</div>
+
+<script>
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+
+    toastMsg.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+</script>
+
+  <!-- TOGGLE LOGIC -->
+ <script>
+function toggleMenu() {
+    const nav = document.querySelector(".nav-links");
+    const toggle = document.querySelector(".menu-toggle");
+
+    nav.classList.toggle("active");
+    toggle.classList.toggle("active");
+}
+</script>
+</body>
+</html>

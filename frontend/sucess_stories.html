@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Success Stories</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="trainers_profile.html">Trainers</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="sucess_stories.html">Success Stories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+
+    <!-- ✅ AUTH AREA -->
+    <div id="auth-area">
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+</header>
+
+
+<section class="testimonials">
+    <h2>Inspirational Success Stories</h2>
+    <p>Your fitness journey begins today.</p>
+
+    <div class="card-container">
+
+        <div class="card">
+            <div class="card-img">
+                <img src="https://www.shutterstock.com/image-photo/portrait-mature-man-before-after-260nw-1303099510.jpg" alt="">
+            </div>
+            <h3>Kevin Lorenz</h3>
+            <p>A powerful transformation built through discipline, consistency, and smart training.</p>
+            <button class="btn">MORE</button>
+        </div>
+
+        <div class="card">
+            <div class="card-img">
+                <img src="https://cdn.images.express.co.uk/img/dynamic/1/590x/1679677_1.jpg" alt="">
+            </div>
+            <h3>Harry Patterson</h3>
+            <p>Proved that results come when dedication meets the right guidance.</p>
+            <button class="btn">MORE</button>
+        </div>
+
+        <div class="card">
+            <div class="card-img">
+                <img src="https://t4.ftcdn.net/jpg/15/46/91/75/360_F_1546917542_e3BdvBMI52XHfspV3RBrob9Wdt1Dh932.jpg" alt="">
+            </div>
+            <h3>Julia Smith</h3>
+            <p>Proof that anyone can transform with the right mindset and routine.</p>
+            <button class="btn">MORE</button>
+        </div>
+
+    </div>
+
+    <p class="credit">Image from users permission</p>
+</section>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+// 3D hover effect
+cards.forEach(card => {
+    card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 18;
+        const rotateY = (centerX - x) / 18;
+
+        card.style.transform =
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    });
+});
+
+// Scroll reveal animation
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+
+<script>
+(function () {
+    const authArea = document.getElementById("auth-area");
+    if (!authArea) return;
+
+    const user = localStorage.getItem("loggedInUser");
+
+    if (user) {
+        authArea.innerHTML = `
+            <span style="color:white; font-weight:bold; margin-right:8px;">
+                Hi, ${user}
+            </span>
+            <button class="login-btn" onclick="logoutUser()">Logout</button>
+        `;
+    }
+})();
+
+function logoutUser() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "home.html";
+}
+</script>
+<!-- COMMON POPUP -->
+<div id="commonModal" class="modal">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModal()">×</span>
+
+    <h2 id="modalTitle">Join Now</h2>
+    <p id="modalDesc">Fill the details below</p>
+
+    <input type="text" id="modalName" placeholder="Your Name">
+    <input type="email" id="modalEmail" placeholder="Your Email">
+    <input type="hidden" id="selectedPlan">
+
+    <button class="btn-red" onclick="submitModal()">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(title, desc) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+
+    // 🔥 AUTO-FILL EMAIL IF LOGGED IN
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+        document.getElementById("modalEmail").value = user;
+    } else {
+        document.getElementById("modalEmail").value = "";
+    }
+
+    document.getElementById("commonModal").style.display = "flex";
+}
+
+
+function closeModal() {
+    document.getElementById("commonModal").style.display = "none";
+}
+
+function submitModal() {
+   showToast("Request submitted successfully!");
+    closeModal();
+}
+</script>
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+    <span id="toastMsg">Success</span>
+</div>
+
+<script>
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+
+    toastMsg.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+</script>
+
+<!-- TOGGLE LOGIC -->
+ <script>
+function toggleMenu() {
+    const nav = document.querySelector(".nav-links");
+    const toggle = document.querySelector(".menu-toggle");
+
+    nav.classList.toggle("active");
+    toggle.classList.toggle("active");
+}
+</script>
+</body>
+</html>

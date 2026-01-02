@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership Plans | ALMI Fitness</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* NAVBAR */
+.navbar{
+ display:flex;justify-content:space-between;align-items:center;
+ padding:15px 40px;background:rgba(0,0,0,.85);
+ position:sticky;top:0;z-index:999
+}
+.navbar img{height:40px}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{color:#fff;text-decoration:none}
+.nav-links a:hover{color:#ff2e2e}
+.login-btn{padding:8px 16px;border:2px solid #ff2e2e;
+ background:transparent;color:#ff2e2e;border-radius:6px;font-weight:bold}
+.login-btn:hover{background:#ff2e2e;color:#fff}
+
+/* MODALS */
+.modal,.payment-popup{
+ display:none;position:fixed;inset:0;
+ background:rgba(0,0,0,.6);
+ justify-content:center;align-items:center;z-index:9999
+}
+.modal-box,.payment-box{
+ background:#fff;padding:20px;width:320px;
+ border-radius:10px;text-align:center
+}
+.modal-box input,.payment-box input{
+ width:100%;padding:8px;margin:6px 0
+}
+.btn-red{background:#ff2e2e;color:#fff;border:none;
+ padding:10px;width:100%;cursor:pointer}
+.toast{
+ position:fixed;bottom:20px;right:20px;
+ background:#333;color:#fff;padding:10px 20px;
+ border-radius:5px;display:none
+}
+.toast.show{display:block}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+ <div class="logo"><img src="images/logo.png"></div>
+
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+ <ul class="nav-links">
+  <li><a href="home.html">Home</a></li>
+  <li><a href="programs.html">Programs</a></li>
+  <li><a href="trainers_profile.html">Trainers</a></li>
+  <li><a href="membership.html">Membership</a></li>
+  <li><a href="sucess_stories.html">Success Stories</a></li>
+  <li><a href="contact.html">Contact</a></li>
+ </ul>
+
+ <div id="auth-area">
+  <a href="login.html" class="login-btn">Login</a>
+ </div>
+</header>
+
+<div class="header">OUR MEMBERSHIP PLANS</div>
+
+<!-- MEMBERSHIP CARDS -->
+<div class="container">
+
+<!-- BASIC -->
+<div class="plan-box">
+ <div class="plan-title">Basic Plan</div>
+ <div class="price">₹1 / month</div>
+ <ul>
+  <li>✔ Access to gym floor</li>
+  <li>✔ Basic equipment usage</li>
+  <li>✔ Locker access</li>
+  <li>✘ No personal trainer</li>
+ </ul>
+ <button class="btn"
+ onclick="openModal('Join Membership','Complete payment to activate plan','Basic Plan',1)">
+ Join Now</button>
+</div>
+
+<!-- STANDARD -->
+<div class="plan-box">
+ <div class="plan-title">Standard Plan</div>
+ <div class="price">₹999 / month</div>
+ <ul>
+  <li>✔ All equipment usage</li>
+  <li>✔ 2 trainer sessions / week</li>
+  <li>✔ Diet consultation</li>
+ </ul>
+ <button class="btn"
+ onclick="openModal('Join Membership','Complete payment to activate plan','Standard Plan',999)">
+ Join Now</button>
+</div>
+
+<!-- PREMIUM -->
+<div class="plan-box">
+ <div class="plan-title">Premium Plan</div>
+ <div class="price">₹1499 / month</div>
+ <ul>
+  <li>✔ Unlimited access</li>
+  <li>✔ Personal trainer</li>
+  <li>✔ Diet + Body analysis</li>
+  <li>✔ Steam & relaxation</li>
+ </ul>
+ <button class="btn"
+ onclick="openModal('Join Membership','Complete payment to activate plan','Premium Plan',1499)">
+ Join Now</button>
+</div>
+
+</div>
+
+<!-- JOIN MODAL -->
+<div id="commonModal" class="modal">
+ <div class="modal-box">
+  <h3 id="modalTitle"></h3>
+  <p id="modalDesc"></p>
+
+  <input id="modalEmail" placeholder="Email">
+  <input type="hidden" id="selectedPlan">
+  <input type="hidden" id="selectedAmount">
+
+  <button class="btn-red" onclick="submitModal()">Proceed to Payment</button>
+ </div>
+</div>
+
+<!-- PAYMENT POPUP -->
+<div id="paymentPopup" class="payment-popup">
+ <div class="payment-box">
+  <h3>Complete Payment</h3>
+  <p id="payPlan"></p>
+  <p id="payAmount"></p>
+
+<!-- CARD -->
+  <input placeholder="Card Number">
+  <input placeholder="MM/YY">
+  <input placeholder="CVV">
+  <button class="btn-red" onclick="processPayment()">Pay with Card</button>
+
+<div class="divider">OR</div>
+
+  <!-- 🔥 QR PAYMENT -->
+  <img id="upiQR" style="width:100%;height: auto 0;max-width: 220px;">
+  <p style="font-size:12px;color:gray">
+    Scan using Google Pay / PhonePe / Paytm
+  </p>
+
+  <button class="btn" onclick="processPayment()">I’ve Paid via UPI</button>
+  <button class="btn" onclick="closePaymentPopup()">Cancel</button>
+ </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"><span id="toastMsg"></span></div>
+
+<script>
+/* AUTH */
+(function(){
+ const a=document.getElementById("auth-area");
+ const u=localStorage.getItem("loggedInUser");
+ if(u){
+  a.innerHTML=`<span style="color:white">Hi, ${u}</span>
+  <button class="login-btn" onclick="logoutUser()">Logout</button>`;
+ }
+})();
+function logoutUser(){
+ localStorage.removeItem("loggedInUser");
+ location.href="home.html";
+}
+
+/* MODAL */
+function openModal(t,d,p,a){
+ document.getElementById("modalTitle").innerText=t;
+ document.getElementById("modalDesc").innerText=d;
+ document.getElementById("modalEmail").value=
+  localStorage.getItem("loggedInUser")||"";
+ document.getElementById("selectedPlan").value=p;
+ document.getElementById("selectedAmount").value=a;
+ document.getElementById("commonModal").style.display="flex";
+}
+function submitModal(){
+ document.getElementById("commonModal").style.display="none";
+ openPaymentPopup();
+}
+
+/* PAYMENT */
+function openPaymentPopup(){
+ document.getElementById("payPlan").innerText=
+  "Plan: "+document.getElementById("selectedPlan").value;
+ document.getElementById("payAmount").innerText=
+  "Amount: ₹"+document.getElementById("selectedAmount").value;
+// QR CODE
+  const upiId="naveenkumar977912345@okaxis"; // 🔴 change to your UPI ID
+ const upiUrl=`upi://pay?pa=${upiId}&pn=ALMI Fitness&am=${selectedAmount.value}&cu=INR`;
+
+ upiQR.src=
+  "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
+  + encodeURIComponent(upiUrl);
+ document.getElementById("paymentPopup").style.display="flex";
+}
+function closePaymentPopup(){
+ document.getElementById("paymentPopup").style.display="none";
+}
+function processPayment(){
+ fetch("http://localhost:8081/api/payment",{
+  method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify({
+   plan:selectedPlan.value,
+   amount:selectedAmount.value,
+   userEmail:localStorage.getItem("loggedInUser")
+  })
+ })
+ .then(r=>r.json())
+ .then(()=>{showToast("Payment Successful ✅");closePaymentPopup();})
+ .catch(()=>showToast("Payment Error"));
+}
+
+/* TOAST */
+function showToast(m){
+ const t=document.getElementById("toast");
+ toastMsg.innerText=m;
+ t.classList.add("show");
+ setTimeout(()=>t.classList.remove("show"),2500);
+}
+</script>
+ <!-- TOGGLE LOGIC -->
+ <script>
+function toggleMenu() {
+    const nav = document.querySelector(".nav-links");
+    const toggle = document.querySelector(".menu-toggle");
+
+    nav.classList.toggle("active");
+    toggle.classList.toggle("active");
+}
+</script>
+</body>
+</html>

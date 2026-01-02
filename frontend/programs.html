@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Fitness Center</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+/* ===== NAVBAR (PROGRAMS PAGE ONLY) ===== */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* LOGO */
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links li a:hover {
+    color: #ff2e2e;
+}
+
+/* AUTH AREA */
+.auth-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* LOGIN / LOGOUT BUTTON */
+.login-btn {
+    padding: 8px 16px;
+    border: 2px solid #ff2e2e;
+    background: transparent;
+    color: #ff2e2e;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background: #ff2e2e;
+    color: white;
+}
+
+/* ===== COMMON MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-box {
+    background: #111;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #222;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+}
+
+</style>
+
+</head>
+
+<body style="background-color: #000000; color: #ffffff; font-family: sans-serif; margin: 0; padding: 20px;">
+
+   <header class="navbar">
+
+    <!-- 1️⃣ LOGO (LEFT) -->
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo">
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+    <!-- 2️⃣ NAV LINKS (CENTER) -->
+    <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="trainers_profile.html">Trainers</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="sucess_stories.html">Success Stories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- 3️⃣ AUTH AREA (RIGHT) -->
+    <div id="auth-area" class="auth-area">
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+
+</header>
+
+
+    <header class="programs-header" style="text-align: center; padding: 40px 0;">
+        <h1
+            style="display: inline-block; font-size: 5.3rem; margin-bottom: 10px; ">
+            Our Fitness <span style="background: linear-gradient(45deg, #8b0000, #ff0000, #ff4d4d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">Programs</span>
+        </h1>
+        <p style="max-width: 600px; margin: 0 auto; color: #bbbbbb;">
+            Explore our carefully designed fitness programs created by expert trainers
+            to help you reach your personal fitness goals.
+        </p>
+    </header>
+    <section
+        style="background-color: #000; color: #fff; font-family: sans-serif; display: flex; padding: 80px 50px; gap: 50px;">
+
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 150px;">
+
+            <div
+                style="position: sticky; top: 120px; height: 450px; display: flex; flex-direction: column; justify-content: center; background: #000;">
+                <h3 style="font-size: 3rem; margin: 0; font-weight: 800; line-height: 1.2;">
+                    WEIGHT <span
+                        style="background: linear-gradient(90deg, #8b0000, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">LOSS</span>
+                </h3>
+                <p style="color: #888; margin: 25px 0; font-size: 1.1rem; max-width: 380px;">
+                    Our weight loss program combines high-intensity fat-burning workouts and a structured  diet plan for sustainable results.
+                </p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px; color: #ccc;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> HIIT & full-body workouts.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Weekly nutrition guidance.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> 1-on-1 trainer support.
+                    </li>
+    
+                </ul>
+                <p
+                    style="color: #fff; margin: 0 0 30px 0; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.2rem;">🕒</span>
+                    <strong style="color: #ff4d4d;">Timings:</strong> Mon–Sat | 6 AM – 10 PM
+                </p>
+
+                <button
+style="background: linear-gradient(90deg, #8b0000, #ff0000); color: #fff; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer;"
+onclick="openModal('Program Join Request','We will contact you with program details')">
+JOIN NOW
+</button>
+
+            </div>
+            <!-- section Two -->
+            <div
+                style="position: sticky; top: 120px; height: 450px; display: flex; flex-direction: column; justify-content: center; background: #000;">
+                <h3 style="font-size: 3rem; margin: 0; font-weight: 800; line-height: 1.2;">
+                    STRENGTH <span
+                        style="background: linear-gradient(90deg, #8b0000, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">GAIN</span>
+                </h3>
+                <p style="color: #888; margin: 25px 0; font-size: 1.1rem; max-width: 380px;">
+                    Build muscle, improve endurance, and transform your physique with our structured weight training sessions designed for all levels.
+                </p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px; color: #ccc;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Guided machine & free-weight training.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Personalized workout charts.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Muscle gain tracking.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Diet support for muscle building.
+                    </li>
+                </ul>
+                <p
+                    style="color: #fff; margin: 0 0 30px 0; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.2rem;">🕒</span>
+                    <strong style="color: #ff4d4d;">Timings:</strong> Mon–Sat | 6 AM – 10 PM
+                </p>
+               <button
+style="background: linear-gradient(90deg, #8b0000, #ff0000); color: #fff; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer;"
+onclick="openModal('Program Join Request','We will contact you with program details')">
+JOIN NOW
+</button>
+
+            </div>
+            <!-- section Three -->
+            <div
+                style="position: sticky; top: 120px; height: 450px; display: flex; flex-direction: column; justify-content: center; background: #000;">
+                <h3 style="font-size: 3.5rem; margin: 0; font-weight: 800; line-height: 1.2;">
+                    YOGA <span
+                        style="background: linear-gradient(90deg, #8b0000, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ZEN</span>
+                </h3>
+                
+                 <p style="color: #888; margin: 25px 0; font-size: 1.1rem; max-width: 380px;">
+                   Yoga sessions to help you improve flexibility, reduce stress, and strengthen your core through guided routines.
+                </p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px; color: #ccc;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Hatha, vinyasa & power yoga styles.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Stress relief techniques.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Morning & evening sessions.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Beginner to advanced levels.
+                    </li>
+                </ul>
+                <p
+                    style="color: #fff; margin: 0 0 30px 0; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.2rem;">🕒</span>
+                    <strong style="color: #ff4d4d;">Timings:</strong> Mon–Sat | 6 AM – 10 PM
+                </p>
+                <button
+style="background: linear-gradient(90deg, #8b0000, #ff0000); color: #fff; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer;"
+onclick="openModal('Program Join Request','We will contact you with program details')">
+JOIN NOW
+</button>
+
+            </div>
+            <!-- section four -->
+             <div
+                style="position: sticky; top: 120px; height: 450px; display: flex; flex-direction: column; justify-content: center; background: #000;">
+                <h3 style="font-size: 3.5rem; margin: 0; font-weight: 800; line-height: 1.2;">
+                    ZUMBA<span
+                        style="background: linear-gradient(90deg, #8b0000, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></span>
+                </h3>
+                
+                 <p style="color: #888; margin: 25px 0; font-size: 1.1rem; max-width: 380px;">
+                    Zumba sessions to help you burn calories, improve coordination, and have fun with dance-inspired workouts.
+                </p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px; color: #ccc;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Dance + Cardio workouts.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Music-driven routines.
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> 500+ calorie burns per session.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Fun, energetic classes.
+                </ul>
+                <p
+                    style="color: #fff; margin: 0 0 30px 0; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.2rem;">🕒</span>
+                    <strong style="color: #ff4d4d;">Timings:</strong> Mon–Sat | 6 AM – 10 PM
+                </p>
+               <button
+style="background: linear-gradient(90deg, #8b0000, #ff0000); color: #fff; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer;"
+onclick="openModal('Program Join Request','We will contact you with program details')">
+JOIN NOW
+</button>
+
+            </div>
+            <!-- section five -->
+             <div
+                style="position: sticky; top: 120px; height: 450px; display: flex; flex-direction: column; justify-content: center; background: #000;">
+                <h3 style="font-size: 3.5rem; margin: 0; font-weight: 800; line-height: 1.2;">
+                    CARDIO<span
+                        style="background: linear-gradient(90deg, #8b0000, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> TRAINING</span>
+                </h3>
+                
+                 <p style="color: #888; margin: 25px 0; font-size: 1.1rem; max-width: 380px;">
+                    improve your cardiovascular health, boost endurance, and burn calories with our dynamic cardio training sessions.
+                </p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px; color: #ccc;">
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Treadmill, cycling & rowing.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Heart rate monitoring.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Endurance building plans.
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #ff0000;">✔</span> Beginner to advanced levels.
+                    </li>
+                </ul>
+                <p
+                    style="color: #fff; margin: 0 0 30px 0; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.2rem;">🕒</span>
+                    <strong style="color: #ff4d4d;">Timings:</strong> Mon–Sat | 6 AM – 10 PM
+                </p>
+                <button
+style="background: linear-gradient(90deg, #8b0000, #ff0000); color: #fff; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer;"
+onclick="openModal('Program Join Request','We will contact you with program details')">
+JOIN NOW
+</button>
+
+            </div>
+            <!--end section -->
+        </div>
+
+        <!-- image section  -->
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 150px;">
+
+            <div
+                style="position: sticky; top: 100px; background: #111; border: 1px solid #333; border-radius: 25px; overflow: hidden; height: 450px; box-shadow: 0 -20px 40px rgba(0,0,0,0.7);">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1000&auto=format&fit=crop"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <div
+                style="position: sticky; top: 100px; background: #1a1a1a; border: 1px solid #444; border-radius: 25px; overflow: hidden; height: 450px; box-shadow: 0 -20px 40px rgba(0,0,0,0.8);">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <div
+                style="position: sticky; top: 100px; background: #222; border: 1px solid #555; border-radius: 25px; overflow: hidden; height: 450px; box-shadow: 0 -20px 40px rgba(0,0,0,0.9);">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div
+                style="position: sticky; top: 100px; background: #222; border: 1px solid #555; border-radius: 25px; overflow: hidden; height: 450px; box-shadow: 0 -20px 40px rgba(0,0,0,0.9);">
+                <img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div
+                style="position: sticky; top: 100px; background: #222; border: 1px solid #555; border-radius: 25px; overflow: hidden; height: 450px; box-shadow: 0 -20px 40px rgba(0,0,0,0.9);">
+                <img src="https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+        </div>
+    </section>
+
+    <div style="height: 150px; background-color: #000;"></div>
+
+    <script>
+(function () {
+    const authArea = document.getElementById("auth-area");
+    if (!authArea) return;
+
+    const user = localStorage.getItem("loggedInUser");
+
+    if (user) {
+        authArea.innerHTML = `
+            <span style="color:white; font-weight:bold; margin-right:8px;">
+                Hi, ${user}
+            </span>
+            <button class="login-btn" onclick="logoutUser()">Logout</button>
+        `;
+    }
+})();
+
+function logoutUser() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "home.html";
+}
+</script>
+
+<!-- COMMON POPUP -->
+<div id="commonModal" class="modal">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModal()">×</span>
+
+    <h2 id="modalTitle">Join Now</h2>
+    <p id="modalDesc">Fill the details below</p>
+
+    <input type="text" id="modalName" placeholder="Your Name">
+    <input type="email" id="modalEmail" placeholder="Your Email">
+    <input type="hidden" id="selectedPlan">
+
+    <button class="btn-red" onclick="submitModal()">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(title, desc) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+
+    // 🔥 AUTO-FILL EMAIL IF LOGGED IN
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+        document.getElementById("modalEmail").value = user;
+    } else {
+        document.getElementById("modalEmail").value = "";
+    }
+
+    document.getElementById("commonModal").style.display = "flex";
+}
+
+
+function closeModal() {
+    document.getElementById("commonModal").style.display = "none";
+}
+
+function submitModal() {
+   showToast("Request submitted successfully!");
+    closeModal();
+}
+</script>
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+    <span id="toastMsg">Success</span>
+</div>
+
+<script>
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+
+    toastMsg.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+</script>
+<!-- TOGGLE LOGIC -->
+ <script>
+function toggleMenu() {
+    const nav = document.querySelector(".nav-links");
+    const toggle = document.querySelector(".menu-toggle");
+
+    nav.classList.toggle("active");
+    toggle.classList.toggle("active");
+}
+</script>
+
+</body>
+
+</html>
