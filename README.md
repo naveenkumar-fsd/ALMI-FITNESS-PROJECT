@@ -1,194 +1,164 @@
-﻿# ALMI-FITNESS-PROJECT
-ALMI_S Fitness Center – Full Stack Web Application
+# 🏋️ ALMI_S Fitness Center – Full Stack Web Application
 
-ALMI_S Fitness Center is a full-stack fitness management web application designed to showcase a modern gym’s digital presence.
-This project demonstrates frontend design, backend integration, authentication, database handling, and real-world features expected in production-level applications.
+ALMI_S Fitness Center is a full-stack fitness management web application designed to represent a modern gym’s digital platform.  
+This project demonstrates real-world frontend design, backend development, authentication, database integration, and production-ready workflows.
 
-The platform allows users to explore fitness programs, trainers, memberships, and contact the gym, while securely handling user interactions through a robust backend.
+---
 
-🚀 Project Purpose
+## 🚀 Project Objective
 
-The goal of this project is to:
+• Build a real-world fitness website using Java Full Stack  
+• Apply Spring Boot backend with REST APIs  
+• Implement authentication, payments, and email services  
+• Design a responsive, professional UI  
+• Create a strong portfolio project for interviews  
 
-Build a real-world fitness website with complete frontend & backend
+---
 
-Demonstrate Java + Spring Boot full-stack skills
+## ✨ Key Features
 
-Implement authentication, payments, email notifications
+### 👤 User Features
+• User login & logout  
+• Session handling using localStorage  
+• Auto-fill logged-in user email across forms  
+• View fitness programs & trainers  
+• Membership plans (Basic / Standard / Premium)  
+• Demo payment flow with success confirmation  
+• QR / UPI payment UI (frontend demo)  
+• Contact form with email notification  
+• Toast notifications for user actions  
+• Fully responsive UI (mobile, tablet, desktop)  
 
-Showcase industry-ready UI/UX and responsive design
+---
 
-Create a portfolio-grade project suitable for job interviews
+### 🧑‍💼 Backend Features
+• RESTful APIs using Spring Boot  
+• Layered architecture (Controller → Service → Repository)  
+• MySQL database integration  
+• Contact messages stored in database  
+• Email service using SMTP  
+• Payment API endpoint  
+• Secure credential handling using environment variables  
 
-🧩 Key Features
-👤 User Features
+---
 
-User login & logout (session via localStorage)
+## 🛠️ Tech Stack
 
-Auto-fill user email across forms
+### Frontend
+• HTML5  
+• CSS3 (custom responsive design, animations)  
+• JavaScript (Vanilla JS)  
 
-Browse fitness programs & trainers
+### Backend
+• Java  
+• Spring Boot  
+• Spring MVC  
+• Spring Data JPA  
+• REST APIs  
 
-Membership plan selection (Basic / Standard / Premium)
+### Database
+• MySQL  
 
-Payment flow with confirmation
+### Tools
+• VS Code  
+• Spring Tool Suite (STS)  
+• Postman  
+• Git & GitHub  
 
-QR / UPI payment support (frontend ready)
+---
 
-Contact form with email notification
+## 📂 Project Structure
 
-Toast notifications for user actions
+ALMI_Fitness_Project  
+├── frontend  
+│   ├── home.html  
+│   ├── programs.html  
+│   ├── trainers_profile.html  
+│   ├── membership.html  
+│   ├── contact.html  
+│   ├── login.html  
+│   ├── style.css  
+│   └── images  
+│  
+├── backend  
+│   ├── controller  
+│   ├── service  
+│   ├── repository  
+│   ├── entity  
+│   └── application.properties  
+│  
+└── README.md  
 
-Fully responsive UI (mobile, tablet, desktop)
+---
 
-🧑‍💼 Admin / Backend Features
+## 🔐 Authentication Workflow
 
-RESTful APIs using Spring Boot
+• User logs in → email stored in localStorage  
+• Navbar dynamically updates based on login state  
+• Only logged-in users can proceed with membership payment  
+• Logout clears user session  
 
-User & contact data stored in MySQL
+---
 
-Email service using SMTP
+## 💳 Payment Workflow (Demo)
 
-Payment API endpoint
-
-Environment-based credential handling
-
-Clean layered architecture (Controller → Service → Repository)
-
-🛠️ Tech Stack
-Frontend
-
-HTML5 – Semantic and structured markup
-
-CSS3 – Custom styling, animations & responsiveness
-
-JavaScript (Vanilla JS) – DOM manipulation & API calls
-
-Backend
-
-Java
-
-Spring Boot
-
-Spring MVC
-
-Spring Data JPA
-
-REST APIs
-
-Database
-
-MySQL
-
-Tools & Platforms
-
-VS Code
-
-Spring Tool Suite (STS)
-
-Postman
-
-Git & GitHub
-
-📂 Project Structure
-ALMI_Fitness_Project/
-│
-├── frontend/
-│   ├── home.html
-│   ├── programs.html
-│   ├── trainers_profile.html
-│   ├── membership.html
-│   ├── contact.html
-│   ├── login.html
-│   ├── style.css
-│   └── images/
-│
-├── backend/
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── entity/
-│   └── application.properties
-│
-└── README.md
-
-🔐 Authentication Logic
-
-User email stored in localStorage after login
-
-Navbar dynamically updates based on login status
-
-Only logged-in users can proceed with membership payments
-
-Logout clears session data
-
-💳 Payment Flow (Demo)
-
-User selects a membership plan
-
-Payment modal opens with plan & amount
-
-Payment data sent to backend API
-
-Backend stores transaction & responds with success
-
-UI displays success toast & disables duplicate payment
+• User selects a membership plan  
+• Payment modal opens with plan & amount  
+• Payment details sent to backend API  
+• Backend responds with success  
+• UI shows success toast & disables repeat payment  
 
 ⚠️ Note: This is a demo payment flow, not a real payment gateway.
 
-📧 Email Integration
+---
 
-Contact form sends user message
+## 📧 Email Workflow
 
-Backend sends email notification to admin email
+• User submits contact form  
+• Data saved in MySQL  
+• Email notification sent to admin email  
+• SMTP credentials secured using environment variables  
 
-SMTP credentials stored securely via environment variables
+---
 
-📱 Responsive Design
+## 📱 Responsive Design
 
-Mobile-first approach
+• Mobile-first design  
+• Hamburger menu for mobile view  
+• Tablet & desktop optimized layouts  
+• Smooth animations without layout shifting  
 
-Hamburger menu for small screens
+---
 
-Optimized layout for tablets & desktops
+## 🌟 Why This Project Is Strong
 
-Smooth animations without layout shifting
+• Complete frontend + backend integration  
+• Real-world features (auth, payment, email)  
+• Clean & scalable architecture  
+• Interview-ready project explanation  
+• Suitable for startup & product company roles  
 
-🌟 What Makes This Project Strong?
+---
 
-Not just UI — full backend integration
+## 🔮 Future Enhancements
 
-Real-world features (auth, payment, email)
+• Admin dashboard (users, payments, memberships)  
+• JWT-based authentication  
+• Real payment gateway (Razorpay / Stripe)  
+• User profile & payment history  
+• Deployment on AWS / Render / Railway  
+• CI/CD pipeline  
 
-Clean & scalable architecture
+---
 
-Performance-optimized CSS
+## 🧑‍💻 Author
 
-Interview-ready explanations
+Naveen Kumar M  
+Aspiring Java Full Stack Developer  
 
-Suitable for startup & product company roles
+---
 
-🔮 Future Enhancements
+## 📌 Final Note
 
-Admin dashboard (manage users, payments, plans)
-
-JWT-based authentication
-
-Razorpay / Stripe payment gateway
-
-User profile & membership history
-
-Deployment using AWS / Render / Railway
-
-CI/CD pipeline integration
-
-🧑‍💻 Author
-
-Naveen Kumar M
-Aspiring Java Full Stack Developer
-
-📌 Final Note
-
-This project is built with the intention of learning, applying, and demonstrating industry-standard full-stack development practices.
-It reflects both technical skills and problem-solving ability, making it suitable for professional evaluation.
-
+This project is built to demonstrate industry-level full-stack development skills.  
+It reflects practical knowledge, problem-solving ability, and readiness for real-world software development roles.
